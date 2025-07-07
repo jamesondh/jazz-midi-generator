@@ -1,4 +1,6 @@
 """Jazz MIDI Generator package."""
 
-__all__ = ["__version__"]
+from .pipeline import generate
+
+__all__ = ["__version__", "generate"]
 __version__ = "0.0.1"
