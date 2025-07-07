@@ -26,13 +26,19 @@ python -m pip install -e .
 python -m jazzgen.data.fetch
 ```
 
-4. Train the chord model:
+4. Build the processed chord corpus.  This only needs to be done once:
+
+```bash
+python -m jazzgen.data.build_chord_corpus
+```
+
+5. Train the chord model:
 
 ```bash
 python scripts/train_chord_markov.py
 ```
 
-5. Generate a MIDI file:
+6. Generate a MIDI file:
 
 ```bash
 python -m jazzgen.cli --key C --bars 12 --tempo 200 output.mid
