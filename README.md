@@ -16,5 +16,15 @@ pip install music21 pretty_midi mido numpy pyyaml click pytest
 python -m jazzgen.data.fetch
 ```
 
-3. (Later) Train the models and generate MIDI with the CLI.
+3. Train the chord model:
+
+```bash
+python scripts/train_chord_markov.py
+```
+
+4. Generate a MIDI file:
+
+```bash
+python -m jazzgen.cli --key C --bars 12 --tempo 200 output.mid
+```
 
