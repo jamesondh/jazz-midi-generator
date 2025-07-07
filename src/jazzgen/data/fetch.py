@@ -16,8 +16,8 @@ DATASETS = {
         "JazzStandards.zip",
     ),
     "wjazzd": (
-        "https://jazzomat.hfm-weimar.de/downloads/WJazzD/WJazzD_v2.0.zip",
-        "WJazzD_v2.0.zip",
+        "https://jazzomat.hfm-weimar.de/download/downloads/RELEASE2.0_mid_unquant.zip",
+        "RELEASE2.0_mid_unquant.zip",
     ),
 }
 
