@@ -10,19 +10,26 @@ This project automatically generates a jazz chord progression and melodic line a
 pip install music21 pretty_midi mido numpy pyyaml click pytest
 ```
 
-2. Fetch raw datasets:
+2. Install the package locally so the `jazzgen` module resolves:
+
+```bash
+pip install -e .
+```
+
+3. (Optional) fetch the raw datasets if you need fresh copies. A small subset
+   is already included under `data/raw` so you can skip this step:
 
 ```bash
 python -m jazzgen.data.fetch
 ```
 
-3. Train the chord model:
+4. Train the chord model:
 
 ```bash
 python scripts/train_chord_markov.py
 ```
 
-4. Generate a MIDI file:
+5. Generate a MIDI file:
 
 ```bash
 python -m jazzgen.cli --key C --bars 12 --tempo 200 output.mid

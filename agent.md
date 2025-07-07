@@ -6,6 +6,7 @@ Chord Markov training and progression sampling are now functional (`train_chord_
 A minimal generation pipeline and CLI are now available (`pipeline.py` and `cli.py`).
 Basic rhythm pattern utilities and a note-choice helper have been added (`rhythm_patterns.py`, `note_choice.py`, `rhythm_engine.py`).
 An initial grammar-driven melody engine now composes short phrases (`melody_grammar.py`, `melody_engine.py`) and a MIDI writer exports the result (`midi_writer.py`). The pipeline and CLI have been updated to produce MIDI files.
+The README now documents a working quick-start workflow including package installation and optional dataset fetching.
 
 ## Next steps
 
