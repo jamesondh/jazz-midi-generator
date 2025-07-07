@@ -10,10 +10,13 @@ This project automatically generates a jazz chord progression and melodic line a
 pip install music21 pretty_midi mido numpy pyyaml click pytest
 ```
 
-2. Install the package locally so the `jazzgen` module resolves:
+2. Install the package locally so the `jazzgen` module resolves.  Editable
+   installs require a recent version of `pip` and `setuptools` (23.1+).  If you
+   encounter an error, upgrade first and then install:
 
 ```bash
-pip install -e .
+python -m pip install --upgrade pip setuptools
+python -m pip install -e .
 ```
 
 3. (Optional) fetch the raw datasets if you need fresh copies. A small subset

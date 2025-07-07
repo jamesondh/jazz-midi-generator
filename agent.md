@@ -10,4 +10,6 @@ The README now documents a working quick-start workflow including package instal
 
 ## Next steps
 
-- Expand the grammar and improve note selection heuristics.
+- The MIDI writer and integration tests from step 7 are complete.
+- Continue with step 8 of the plan: polish documentation and do a listening
+  review.
