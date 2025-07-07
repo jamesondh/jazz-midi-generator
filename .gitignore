@@ -1,0 +1,12 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Data artifacts
+/data/*
+!/data/README.md
+!/data/raw/
+!/data/raw/checksums.json
+
+# Notebooks and large files
+*.ipynb

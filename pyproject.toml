@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jazzgen"
+version = "0.0.1"
+description = "Headless jazz MIDI generator"
+authors = [{name="Example"}]
+requires-python = ">=3.10"
+dependencies = [
+    "music21",
+    "pretty_midi",
+    "mido",
+    "numpy",
+    "pyyaml",
+    "click",
+]
+
+[tool.black]
+line-length = 88
+target-version = ["py310"]
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra"
+testpaths = ["tests"]
