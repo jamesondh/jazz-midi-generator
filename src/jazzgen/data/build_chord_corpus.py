@@ -45,11 +45,20 @@ RE_CHORD = re.compile(r"^([A-G][b#]?)(.*)$")
 
 
 def parse_symbol(symbol: str) -> tuple[str, str]:
-    """Return ``(root, quality)`` from chord symbol like ``G7alt``."""
-    m = RE_CHORD.match(symbol.strip())
+    """Return ``(root, quality)`` from chord symbol like ``G7alt``.
+
+    The raw dataset occasionally contains tokens wrapped in parentheses or
+    stray digits such as ``(A0)``.  We strip any parentheses before attempting
+    to parse so that these oddities do not halt corpus building.
+    """
+    cleaned = symbol.strip().replace("(", "").replace(")", "")
+    m = RE_CHORD.match(cleaned)
     if not m:
         raise ValueError(f"Invalid chord symbol: {symbol}")
     root, quality = m.groups()
+    # Treat lone digit artefacts like "A0" as a bare chord with no quality.
+    if quality == "0":
+        quality = ""
     return root, quality or ""
 
 
@@ -69,7 +78,11 @@ def parse_song(song: dict) -> list[list[tuple[str, str]]]:
         for bar in chords_str.split("|"):
             bar_chords = []
             for sym in filter(None, bar.split(",")):
-                root, qual = parse_symbol(sym)
+                try:
+                    root, qual = parse_symbol(sym)
+                except ValueError:
+                    # Skip symbols that still fail to parse after cleaning
+                    continue
                 root = transpose_root(root, steps)
                 bar_chords.append((root, qual))
             if bar_chords:

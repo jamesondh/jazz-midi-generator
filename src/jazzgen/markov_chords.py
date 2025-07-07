@@ -12,17 +12,20 @@ from .chord_theory import ROOT_MAP, CANONICAL, transpose
 Chord = Tuple[str, str]
 
 
-def build_transition_matrix(corpus: Dict[str, List[List[Chord]]]) -> Dict[Chord, Dict[Chord, float]]:
+def build_transition_matrix(
+    corpus: Dict[str, List[List[Chord]]]
+) -> Dict[Chord, Dict[Chord, float]]:
     """Build a first-order transition matrix from a chord corpus."""
     counts: Dict[Chord, Dict[Chord, int]] = {}
     for song in corpus.values():
         for bar in song:
             prev: Chord | None = None
             for chord in bar:
+                chord_t: Chord = tuple(chord)  # JSON loads lists; convert to tuple
                 if prev is not None:
-                    counts.setdefault(prev, {}).setdefault(chord, 0)
-                    counts[prev][chord] += 1
-                prev = chord
+                    counts.setdefault(prev, {}).setdefault(chord_t, 0)
+                    counts[prev][chord_t] += 1
+                prev = chord_t
     matrix: Dict[Chord, Dict[Chord, float]] = {}
     for prev, dests in counts.items():
         total = sum(dests.values())
