@@ -14,3 +14,8 @@ The README now documents a working quick-start workflow including package instal
 - Continue with step 8 of the plan: polish documentation and do a listening
   review.
 - Updated README with a step to build the chord corpus before training.
+- Add a golden-file regression test that checks a fixed seed produces the same
+  MIDI hash.
+- Insert an architecture diagram and CLI options table into the README.
+- Manually audition a 32-bar solo in B-flat to confirm there are no glaring
+  rhythmic glitches.
